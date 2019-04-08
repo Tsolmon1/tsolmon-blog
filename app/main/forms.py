@@ -37,3 +37,13 @@ class SearchForm(FlaskForm):
         if 'csrf_enabled' not in kwargs:
             kwargs['csrf_enabled'] = False
         super(SearchForm, self).__init__(*args, **kwargs)
+
+class CompanyForm(FlaskForm):
+    """
+    Form for users to create new account
+    """
+    names_one = StringField('Нэршил 1')
+    names_two = StringField('Нэрршил 2')
+    names_three = StringField('Нэршил 3')
+    branches = StringField('Нэршил 4')
+    submit = SubmitField('Нэмэх')

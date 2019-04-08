@@ -1,0 +1,56 @@
+
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th width="15%"> Id </th>
+      <th width="15%"> Нэршил 1 </th>
+      <th width="30%"> Нэршил 2</th>
+      <th width="15%"> Нэршил 3 </th>
+      <th width="15%"> Нэршил 4</th>
+      <th width="15%"> Засах </th>
+      <th width="15%"> Устгах </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for company in companys %}
+
+    <tr>
+      <td> {{ company.id }} </td>
+      <td> {{ company.names_one }} </td>
+
+      <td>
+
+        {{ company.names_two }}
+      </td>
+      <td>
+        {{ company.names_three }}
+      </td>
+      <td>
+        {{ company.branches }}
+      </td>
+
+      <td>
+        <a href="{{ url_for('main.edit_company', id=company.id) }}">
+          <i class="fa fa-pencil"></i> Засах
+        </a>
+      </td>
+      <td>
+        <a href="{{ url_for('main.delete_company', id=company.id) }}">
+          <i class="fa fa-trash"></i> Устгах
+        </a>
+      </td>
+    </tr>
+
+    {% endfor %}
+  </tbody>
+</table>
+{% if prev_url %}
+<a href="{{ prev_url }}">Өмнөх</a>
+{% endif %}
+
+
+
+{% if next_url %}
+<a href="{{ next_url }}">Дараах</a>
+{% endif %}
